@@ -17,7 +17,7 @@ export class HomePage extends BasePage {
     this.mainNavigation = page.locator('[aria-label="Main navigation"]');
     this.alertsNavLink = this.mainNavigation.locator('[aria-label="Alerts"]');
     this.streamsNavLink = this.mainNavigation.locator('[aria-label="Streams"]');
-    this.dashboardsNavLink = this.mainNavigation.locator('[aria-label="Dashboards - Current page"]');
+    this.dashboardsNavLink = this.mainNavigation.locator('[aria-label="Dashboards"]');
     this.settingsIcon = page.locator('button[data-test="menu-link-settings-item"]');
   }
 

@@ -54,30 +54,18 @@ test.describe('Module 3 - Dashboard flow', () => {
     await dashboardPage.waitForListPage();
 
     await dashboardPage.clickNewDashboard();
-    await dashboardPage.createDashboard(
-      dashboardName,
-      'Dashboard created through Playwright automation'
-    );
+    await dashboardPage.createDashboard(dashboardName,'Dashboard created through Playwright automation');
 
     await dashboardPage.waitForDashboardDetailsPage(dashboardName);
     await dashboardPage.clickAddPanel();
     await dashboardPage.waitForAddPanelPage();
 
-    await dashboardPage.createTablePanel({
-      panelName,
-      streamType: 'logs',
-      streamName,
-      xField: 'level',
-      yField: 'user_id',
-      timeRange: 'Past 3 Weeks',
-    });
-
-    await dashboardPage.waitForDashboardDetailsPage(dashboardName);
+    await dashboardPage.createTablePanel({panelName,streamType: 'logs',streamName,xField: 'level',yField: 'user_id',});
     await dashboardPage.waitForPanelOnDashboard(panelName);
 
     await dashboardPage.validateTablePanelData([
       { key: 'info', value: '2.00' },
       { key: 'error', value: '0.00' },
     ]);
-  });
+});
 });
