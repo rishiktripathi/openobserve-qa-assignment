@@ -51,8 +51,8 @@ export class AlertsPage extends BasePage {
   constructor(page: Page) {
     super(page);
 
-    this.pageTitle = page.getByRole('heading', { name: /alerts|new alert/i });
-    this.newAlertButton = page.getByRole('button', { name: /new alert/i });
+    this.pageTitle = page.locator('[data-test="alert-list-title"]');
+    this.newAlertButton = page.getByRole('button', { name: 'New alert' });
 
     this.emptyStateCreateDestinationButton = page.getByRole('button', {name: /create destination/i,});
     this.noDestinationMessage = page.getByText(/it looks like you haven't created any destinations yet/i);
