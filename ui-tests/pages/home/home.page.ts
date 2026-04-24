@@ -4,6 +4,7 @@ import { AlertsPage } from '../sidebar/alerts.page';
 import { SettingsPage } from '../settings/settings.page';
 import {StreamsPage} from '../sidebar/streams.page';
 import { DashboardPage } from '../sidebar/dashboard.page';
+import { PipelinePage } from '../sidebar/pipeline.page';
 
 export class HomePage extends BasePage {
     readonly mainNavigation: Locator;
@@ -11,6 +12,7 @@ export class HomePage extends BasePage {
   readonly settingsIcon: Locator;
   readonly streamsNavLink: Locator;
   readonly dashboardsNavLink: Locator;
+  readonly pipelinesNavLink: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -18,6 +20,7 @@ export class HomePage extends BasePage {
     this.alertsNavLink = this.mainNavigation.locator('[aria-label="Alerts"]');
     this.streamsNavLink = this.mainNavigation.locator('[aria-label="Streams"]');
     this.dashboardsNavLink = this.mainNavigation.locator('[aria-label="Dashboards"]');
+    this.pipelinesNavLink = this.mainNavigation.locator('[aria-label="Pipelines"]');
     this.settingsIcon = page.locator('button[data-test="menu-link-settings-item"]');
   }
 
@@ -42,6 +45,13 @@ export class HomePage extends BasePage {
     });
 
     return new DashboardPage(this.page);
+  }
+
+  async goToPipelines(): Promise<PipelinePage> {
+    await test.step('Navigate to Pipelines page', async () => {
+      await this.pipelinesNavLink.click();
+    });
+    return new PipelinePage(this.page);
   }
 
   async goToSettings(): Promise<SettingsPage> {

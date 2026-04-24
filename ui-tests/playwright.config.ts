@@ -32,7 +32,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
     baseURL: 'http://localhost:5080',
     headless: false,
-    viewport: {width:1280, height:720},
+    viewport: {width:2560, height:1440},
     actionTimeout: 10*1000,
     navigationTimeout: 15*1000,
 
