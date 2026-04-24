@@ -60,7 +60,7 @@ test.describe('Module 2 - Real-time alert flow', () => {
     ]);
   });
 
-  test('should create real-time alert and validate payload in destination stream', async () => {
+  test('User should create real-time alert and validate payload in destination stream', async () => {
     const templateBody = `[{"alert_name": "{alert_name}","alert_type": "{alert_type}","org_name": "{org_name}","stream_name": "{stream_name}","timestamp": "{timestamp}"}]`;
 
     // create template
@@ -76,7 +76,7 @@ test.describe('Module 2 - Real-time alert flow', () => {
     alertDestinationsPage = await settingsPage.goToAlertDestinations();
     await alertDestinationsPage.waitForPage();
     await alertDestinationsPage.clickNewDestination();
-    await alertDestinationsPage.createDestination(destinationName,templateName,destinationUrl);
+    await alertDestinationsPage.createDestination(destinationName, templateName, destinationUrl);
 
     // create alert
     alertsPage = await homePage.goToAlerts();

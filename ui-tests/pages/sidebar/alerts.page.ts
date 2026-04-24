@@ -34,7 +34,7 @@ export class AlertsPage extends BasePage {
   readonly continueButton: Locator;
   readonly backButton: Locator;
   readonly saveButton: Locator;
-  
+
   readonly conditionTab: Locator;
   readonly conditionColumnInput: Locator;
   readonly conditionOperatorSelect: Locator;
@@ -54,7 +54,7 @@ export class AlertsPage extends BasePage {
     this.pageTitle = page.locator('[data-test="alert-list-title"]');
     this.newAlertButton = page.getByRole('button', { name: 'New alert' });
 
-    this.emptyStateCreateDestinationButton = page.getByRole('button', {name: /create destination/i,});
+    this.emptyStateCreateDestinationButton = page.getByRole('button', { name: /create destination/i, });
     this.noDestinationMessage = page.getByText(/it looks like you haven't created any destinations yet/i);
 
     this.alertNameInput = page.locator('[data-test="add-alert-name-input"]');
@@ -69,7 +69,7 @@ export class AlertsPage extends BasePage {
     this.backButton = page.getByRole('button', { name: /^back$/i });
     this.saveButton = page.getByRole('button', { name: /^save$/i });
 
-    this.conditionTab = page.getByRole('button', {name:'Condition'}).first();
+    this.conditionTab = page.getByRole('button', { name: 'Condition' }).first();
     this.conditionColumnInput = page.locator('[data-test="alert-conditions-select-column"] input');
     this.conditionOperatorSelect = page.locator('[data-test="alert-conditions-operator-select"]');
     this.conditionValueInput = page.locator('[data-test="alert-conditions-value-input"] input');

@@ -54,7 +54,7 @@ test.describe('Module 4 - Pipeline flow', () => {
     ]);
   });
 
-  test('should create pipeline and route source data to destination stream', async () => {
+  test('User should create pipeline and route source data to destination stream', async () => {
     pipelinePage = await homePage.goToPipelines();
     await pipelinePage.waitForListPage();
 

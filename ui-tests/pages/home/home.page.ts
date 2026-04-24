@@ -2,12 +2,12 @@ import { Locator, Page, test } from '@playwright/test';
 import { BasePage } from '../base/base.page';
 import { AlertsPage } from '../sidebar/alerts.page';
 import { SettingsPage } from '../settings/settings.page';
-import {StreamsPage} from '../sidebar/streams.page';
+import { StreamsPage } from '../sidebar/streams.page';
 import { DashboardPage } from '../sidebar/dashboard.page';
 import { PipelinePage } from '../sidebar/pipeline.page';
 
 export class HomePage extends BasePage {
-    readonly mainNavigation: Locator;
+  readonly mainNavigation: Locator;
   readonly alertsNavLink: Locator;
   readonly settingsIcon: Locator;
   readonly streamsNavLink: Locator;
@@ -31,10 +31,10 @@ export class HomePage extends BasePage {
 
     return new AlertsPage(this.page);
   }
-  
+
   async goToStreams(): Promise<StreamsPage> {
     await test.step('Navigate to Streams page', async () => {
-        await this.streamsNavLink.click();
+      await this.streamsNavLink.click();
     });
     return new StreamsPage(this.page);
   }
@@ -42,6 +42,7 @@ export class HomePage extends BasePage {
   async goToDashboards(): Promise<DashboardPage> {
     await test.step('Navigate to Dashboards page', async () => {
       await this.dashboardsNavLink.click();
+
     });
 
     return new DashboardPage(this.page);

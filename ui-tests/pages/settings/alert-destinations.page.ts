@@ -111,14 +111,14 @@ export class AlertDestinationsPage extends BasePage {
     });
   }
 
-  async createDestination(destinationName: string,templateName: string,destinationUrl: string): Promise<void> {
+  async createDestination(destinationName: string, templateName: string, destinationUrl: string): Promise<void> {
     await test.step(`Create destination: ${destinationName}`, async () => {
       await this.selectCustomDestination();
       await this.selectWebHookTab();
       await this.fillDestinationName(destinationName);
       await this.selectTemplate(templateName);
       await this.fillDestinationUrl(destinationUrl);
-      await this.addHeader('Authorization','Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=');
+      await this.addHeader('Authorization', 'Basic cm9vdEBleGFtcGxlLmNvbTpDb21wbGV4cGFzcyMxMjM=');
       await this.clickSave();
     });
   }

@@ -26,7 +26,6 @@ export class SettingsPage extends BasePage {
     await test.step('Open Templates page from Settings', async () => {
       await this.templatesMenuItem.click();
     });
-
     return new TemplatesPage(this.page);
   }
 

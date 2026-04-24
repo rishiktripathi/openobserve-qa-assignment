@@ -30,12 +30,12 @@ export class BasePage {
   }
 
   async validateSuccessToast(message: string): Promise<void> {
-  await test.step(`Validate success toast: ${message}`, async () => {
-    const toast = this.page.locator('.q-notification__message').filter({
-      hasText: message,
-    });
+    await test.step(`Validate success toast: ${message}`, async () => {
+      const toast = this.page.locator('.q-notification__message').filter({
+        hasText: message,
+      });
 
-    await expect(toast).toBeVisible({ timeout: 5000 });
-  });
-}
+      await expect(toast).toBeVisible({ timeout: 5000 });
+    });
+  }
 }

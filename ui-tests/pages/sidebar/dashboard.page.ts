@@ -78,8 +78,8 @@ export class DashboardPage extends BasePage {
 
   async clickAddPanel(): Promise<void> {
     await test.step('Click Add Panel', async () => {
-        await this.page.reload();
-        await this.addPanelButton.click();
+      await this.page.reload();
+      await this.addPanelButton.click();
     });
   }
 
@@ -131,26 +131,26 @@ export class DashboardPage extends BasePage {
   }
 
   private getFieldRow(fieldName: string): Locator {
-    return this.page.locator(`[data-test*="field-list-item"][title="${fieldName}"]`); 
-}
+    return this.page.locator(`[data-test*="field-list-item"][title="${fieldName}"]`);
+  }
 
   async addFieldToX(fieldName: string): Promise<void> {
     await test.step(`Add field to X: ${fieldName}`, async () => {
-        const row = this.getFieldRow(fieldName);
-        await expect(row).toBeVisible();
-        await row.locator('[data-test="dashboard-add-x-data"]:not([disabled])').click();
+      const row = this.getFieldRow(fieldName);
+      await expect(row).toBeVisible();
+      await row.locator('[data-test="dashboard-add-x-data"]:not([disabled])').click();
     });
-}
+  }
 
   async addFieldToY(fieldName: string): Promise<void> {
-  await test.step(`Add field to Y: ${fieldName}`, async () => {
-    const row = this.getFieldRow(fieldName);
+    await test.step(`Add field to Y: ${fieldName}`, async () => {
+      const row = this.getFieldRow(fieldName);
 
-    await expect(row).toBeVisible();
+      await expect(row).toBeVisible();
 
-    await row.locator('[data-test="dashboard-add-y-data"]:not([disabled])').click();
-  });
-}
+      await row.locator('[data-test="dashboard-add-y-data"]:not([disabled])').click();
+    });
+  }
 
   async addFieldToB(fieldName: string): Promise<void> {
     await test.step(`Add field to Breakdown: ${fieldName}`, async () => {
@@ -210,17 +210,17 @@ export class DashboardPage extends BasePage {
   }
 
   async validateTablePanelData(expected: Array<{ key: string; value: string }>): Promise<void> {
-  await test.step('Validate dashboard table panel data', async () => {
-    const tableBody = this.page.locator('.q-table__middle table tbody.q-virtual-scroll__content');
-    for (const item of expected) {
-      const row = tableBody.locator('tr').filter({
-        has: this.page.locator('td').filter({ hasText: item.key }),
-      }).first();
+    await test.step('Validate dashboard table panel data', async () => {
+      const tableBody = this.page.locator('.q-table__middle table tbody.q-virtual-scroll__content');
+      for (const item of expected) {
+        const row = tableBody.locator('tr').filter({
+          has: this.page.locator('td').filter({ hasText: item.key }),
+        }).first();
 
-      await expect(row, `Missing row for key=${item.key}`).toBeVisible();
-      await expect(row.locator('td').nth(0)).toContainText(item.key);
-      await expect(row.locator('td').nth(1)).toContainText(item.value);
-    }
-  });
-}
+        await expect(row, `Missing row for key=${item.key}`).toBeVisible();
+        await expect(row.locator('td').nth(0)).toContainText(item.key);
+        await expect(row.locator('td').nth(1)).toContainText(item.value);
+      }
+    });
+  }
 }
